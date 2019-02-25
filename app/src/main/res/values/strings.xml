@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">WeatherApp</string>
+    <string name="weather_icon">Weather icon</string>
+    <string name="humidity">Humedad</string>
+    <string name="pressure">Presión</string>
+    <string name="next_5_days">Próximos 5 días</string>
+</resources>

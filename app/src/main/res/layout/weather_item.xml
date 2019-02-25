@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+                name="weather"
+                type="com.example.weatherapp.models.Weather"/>
+    </data>
+
+    <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
+            android:layout_margin="8dp">
+
+        <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <TextView
+                    android:id="@+id/day_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@{weather.dtText}"
+                    android:textSize="16sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    tools:text="2019-02-25 03:00:00"/>
+
+            <ImageView
+                    android:id="@+id/weather_iv"
+                    android:layout_width="@dimen/item_temp_size"
+                    android:layout_height="@dimen/item_temp_size"
+                    app:imageUrl="@{weather.weather[0].icon}"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/day_tv"
+                    app:layout_constraintRight_toLeftOf="@+id/temperature_tv"
+                    android:contentDescription="@string/weather_icon"/>
+
+            <TextView
+                    android:id="@+id/temperature_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/item_temp_size"
+                    android:gravity="center"
+                    android:textSize="40sp"
+                    tools:text="@{Float.toString(weather.main.temp) + '°'}"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/weather_iv"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+
+</layout>
